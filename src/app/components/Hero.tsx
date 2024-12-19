@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import Slide from "./Slide"
 
 const Hero = () => {
-    let settings = {
+    const settings = {
         dots: true,
         infinite: true,
         slidesToShow: 1,
@@ -46,7 +46,10 @@ const Hero = () => {
                 <Slider {...settings}>{slideData.map((item) => (
                     <Slide
                         key={item.id}
-                        img={item.img} />
+                        img={item.img} 
+                        title={''} 
+                        mainTitle={''} 
+                        price={''} />
 
                 ))}</Slider>
                 {/* // title={item.title}

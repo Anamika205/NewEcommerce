@@ -1,6 +1,6 @@
 import React from 'react'
-import Banner from "../../../public/Assets/Imges/banner1.png";
-import Banner1 from "../../../public/Assets/Imges/banner2.png";
+// import Banner from "../../../public/Assets/Imges/banner1.png";
+// import Banner1 from "../../../public/Assets/Imges/banner2.png";
 
 
 function Testimonial() {
