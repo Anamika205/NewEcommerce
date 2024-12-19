@@ -1,5 +1,4 @@
 import React from 'react'
-import Image from 'next/image'
 import Banner from "../../../public/Assets/Imges/banner1.png";
 import Banner1 from "../../../public/Assets/Imges/banner2.png";
 

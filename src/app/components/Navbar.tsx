@@ -8,9 +8,9 @@ const Navbar = () => {
             <div className='flex w-fit gap-10 mx-auto font-medium py-4 text-blackish'>
                 <Link className="navbar_link relative" href="/">HOME</Link>
                 <Link className="navbar_link relative" href="/categories">CATEGORIES</Link>
-                <Link className="navbar_link relative" href="/mens">MEN'S</Link>
-                <Link className="navbar_link relative" href="/womens">WOMEN'S</Link>
-                <Link className="navbar_link relative" href="/offers">OFFER'S</Link>
+                <Link className="navbar_link relative" href="/mens">MEN&apos;S</Link>
+                <Link className="navbar_link relative" href="/womens">WOMEN&apos;S</Link>
+                <Link className="navbar_link relative" href="/offers">OFFER&apos;S</Link>
                 <Link className="navbar_link relative" href="/blogs">BLOGS</Link>
             </div>
         </div>
