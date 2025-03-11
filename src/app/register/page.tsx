@@ -13,7 +13,7 @@ interface RegisterForm {
 export default function RegisterPage() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
+  const [error] = useState("");
 
   const {
     register,

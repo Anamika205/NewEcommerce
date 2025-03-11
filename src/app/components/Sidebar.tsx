@@ -1,12 +1,17 @@
 "use client";
 import { useState } from "react";
-import { XMarkIcon, FunnelIcon } from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
-export default function Sidebar({ onFilterChange }: { onFilterChange: (filters: any) => void }) {
+interface FilterType {
+  category: string;
+  size: string;
+}
+
+export default function Sidebar({ onFilterChange }: { onFilterChange: (filters: FilterType) => void }) {
   const [isOpen, setIsOpen] = useState(false);
-  const [filters, setFilters] = useState({ category: "", size: "" });
+  const [filters, setFilters] = useState<FilterType>({ category: "", size: "" });
 
-  const handleFilterChange = (key: string, value: string) => {
+  const handleFilterChange = (key: keyof FilterType, value: string) => {
     setFilters((prev) => {
       const newFilters = { ...prev, [key]: value };
       onFilterChange(newFilters);
@@ -22,7 +27,6 @@ export default function Sidebar({ onFilterChange }: { onFilterChange: (filters: 
         className="fixed top-4 left-4 z-50 bg-pink-300 text-white p-2 rounded-lg shadow-lg hover:bg-pink-500 transition"
       >
         <h2 className="text-pink-700">Filter</h2>
-        {/* <FunnelIcon className="w-6 h-6" /> */}
       </button>
 
       {/* Sidebar Overlay */}

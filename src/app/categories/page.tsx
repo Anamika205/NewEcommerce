@@ -9,10 +9,16 @@ const products = [
   { id: 4, name: "Women's T-shirt", category: "women", size: "small" },
 ];
 
-export default function CategoryPage() {
-  const [filters, setFilters] = useState({ category: "", size: "" });
+// Define the correct type for filters
+interface FilterType {
+  category: string;
+  size: string;
+}
 
-  const handleFilterChange = (newFilters: any) => {
+export default function CategoryPage() {
+  const [filters, setFilters] = useState<FilterType>({ category: "", size: "" });
+
+  const handleFilterChange = (newFilters: FilterType) => {
     setFilters(newFilters);
   };
 
