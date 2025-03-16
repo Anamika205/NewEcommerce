@@ -64,7 +64,7 @@ export default function Login() {
               className="w-full pl-10 p-2 bg-transparent border border-white rounded-md text-white placeholder-white focus:ring-2 focus:ring-blue-300"
               placeholder="Email Address"
             />
-            {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
+            {/* {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>} */}
           </div>
 
           {/* Password Input */}
@@ -77,7 +77,7 @@ export default function Login() {
               className="w-full pl-10 p-2 bg-transparent border border-white rounded-md text-white placeholder-white focus:ring-2 focus:ring-blue-300"
               placeholder="Password"
             />
-            {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
+            {/* {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>} */}
           </div>
 
           {/* Submit Button */}
