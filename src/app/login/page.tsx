@@ -4,13 +4,18 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'  // Use next/navigation for useRouter in Next.js 13
 
+interface FormData {
+  email: string;
+  password: string;
+}
+
 export default function Login() {
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
   const [error, setError] = useState('');
   const [modalOpen, setModalOpen] = useState(false) // State for showing the success modal
   const router = useRouter()  // Initialize useRouter for navigation
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: FormData) => {
     try {
       console.log(data)
 
@@ -27,10 +32,8 @@ export default function Login() {
       })
 
       if (res.ok) {
-      
         const responseData = await res.json()
 
- 
         localStorage.setItem('token', responseData.token)  // Or use cookies
 
         setModalOpen(true)
@@ -38,7 +41,6 @@ export default function Login() {
           router.push('/')  
         }, 2000) 
       } else {
-   
         const errorData = await res.json()
         setError(errorData.message || 'Invalid email or password. Please try again.')
       }
@@ -53,7 +55,7 @@ export default function Login() {
       <div className="bg-white bg-opacity-20 backdrop-blur-lg shadow-lg p-8 rounded-xl w-96 border border-white border-opacity-30">
         <h2 className="text-2xl font-bold text-center text-white mb-6">Login</h2>
 
-        {/* {error && <p className="text-red-500 text-center mb-4">{error}</p>} */}
+        {error && <p className="text-red-500 text-center mb-4">{error}</p>}
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           {/* Email Input */}
@@ -64,7 +66,7 @@ export default function Login() {
               className="w-full pl-10 p-2 bg-transparent border border-white rounded-md text-white placeholder-white focus:ring-2 focus:ring-blue-300"
               placeholder="Email Address"
             />
-            {/* {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>} */}
+            {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>}
           </div>
 
           {/* Password Input */}
@@ -77,7 +79,7 @@ export default function Login() {
               className="w-full pl-10 p-2 bg-transparent border border-white rounded-md text-white placeholder-white focus:ring-2 focus:ring-blue-300"
               placeholder="Password"
             />
-            {/* {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>} */}
+            {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>}
           </div>
 
           {/* Submit Button */}
