@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form'
 export default function Register() {
   const { register, handleSubmit, formState: { errors } } = useForm()
   const [showPassword, setShowPassword] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const [error, setError] = useState('');
   const [modalOpen, setModalOpen] = useState(false)  // State for modal visibility
 
   const onSubmit = async (data: any) => {

@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'  // Use next/navigation for useRoute
 
 export default function Login() {
   const { register, handleSubmit, formState: { errors } } = useForm()
-  const [error, setError] = useState<string | null>(null) // Error state for login errors
+  const [error, setError] = useState('');
   const [modalOpen, setModalOpen] = useState(false) // State for showing the success modal
   const router = useRouter()  // Initialize useRouter for navigation
 
