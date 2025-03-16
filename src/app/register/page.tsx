@@ -1,16 +1,21 @@
-
 'use client'
 
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
+interface FormData {
+  name: string;
+  email: string;
+  password: string;
+}
+
 export default function Register() {
-  const { register, handleSubmit, formState: { errors } } = useForm()
+  const { register, handleSubmit } = useForm<FormData>()
   const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('');
   const [modalOpen, setModalOpen] = useState(false)  // State for modal visibility
 
-  const onSubmit = async (data: any) => {
+  const onSubmit = async (data: FormData) => {
     try {
       console.log(data)
 
@@ -35,7 +40,7 @@ export default function Register() {
       } else {
         setError('Registration failed. Please try again.')
       }
-    } catch (err) {
+    } catch {
       setError('An error occurred. Please try again.')
     }
   }
@@ -61,7 +66,6 @@ export default function Register() {
               className="w-full pl-10 p-2 bg-transparent border border-white rounded-md text-white placeholder-white focus:ring-2 focus:ring-blue-300"
               placeholder="Full Name"
             />
-            {/* {errors.name && <p className="text-red-500 text-sm">{errors.name.message}</p>} */}
           </div>
 
           {/* Email Input */}
@@ -72,7 +76,6 @@ export default function Register() {
               className="w-full pl-10 p-2 bg-transparent border border-white rounded-md text-white placeholder-white focus:ring-2 focus:ring-blue-300"
               placeholder="Email Address"
             />
-            {/* {errors.email && <p className="text-red-500 text-sm">{errors.email.message}</p>} */}
           </div>
 
           {/* Password Input */}
@@ -86,7 +89,6 @@ export default function Register() {
               className="w-full pl-10 pr-10 p-2 bg-transparent border border-white rounded-md text-white placeholder-white focus:ring-2 focus:ring-blue-300"
               placeholder="Password"
             />
-            {/* {errors.password && <p className="text-red-500 text-sm">{errors.password.message}</p>} */}
 
             <button
               type="button"
