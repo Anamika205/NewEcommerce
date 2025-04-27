@@ -1,8 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
+import type { StaticImageData } from 'next/image';
 
 interface propsType {
-  img: string;
+  img: string | StaticImageData;
   title: string;
   mainTitle: string;
   price: string;
